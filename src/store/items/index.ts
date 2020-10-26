@@ -24,9 +24,8 @@ export default {
         })
     },
     fetchItemList({ commit }: any){
-      firebase.db.collection('items').get()
-      .then((list) => {
-        var itemList = list.docs.map((x) => {
+      firebase.db.collection('items').onSnapshot((items) => {
+        var itemList = items.docs.map((x) => {
           return {
             key: x.id,
             expired: new Date(x.data().expireDate) < new Date(),
@@ -36,11 +35,9 @@ export default {
             }
           }
         })
-        console.log(itemList.filter((a: any) => !a.expired && !a.ended))
         commit('setItemList', itemList)
         commit('setItemListFiltered', itemList.filter((a: any) => !a.expired && !a.ended))
       })
-      .catch((e) => { console.log(e) })
     },
     sendNewBid({ commit }: any, payload: any) {
       firebase.db.collection('items').doc(payload.key).set(payload.content)
@@ -48,6 +45,10 @@ export default {
       .catch((e) => { console.log(e) })
       .finally(() => {
       })
+    },
+    setLists({ commit }: any, payload: any) {
+      commit('setItemList', payload)
+      commit('setItemListFiltered', payload.filter((a: any) => !a.expired && !a.ended))
     }
   },
   getters: {

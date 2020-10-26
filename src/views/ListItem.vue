@@ -126,21 +126,20 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getItemListFiltered',
       'isAuthorized',
       'getUser'
     ]),
     item() {
-      return this.getItemListFiltered[this.index]
+      return this.$store.getters.getItemListFiltered[this.index]
     },
     authorBiggestBid() {
       return this.getUser.email == this.biggestBid().author
     },
     itemAuthor() {
-      return this.getUser.email == this.getItemListFiltered[this.index].content.email
+      return this.getUser.email == this.$store.getters.getItemListFiltered[this.index].content.email
     },
     itemTitle() {
-      return this.getItemListFiltered[this.index].content.name + ' (' + this.getItemListFiltered[this.index].content.email + ')'
+      return this.$store.getters.getItemListFiltered[this.index].content.name + ' (' + this.$store.getters.getItemListFiltered[this.index].content.email + ')'
     }
   },
   methods: {
