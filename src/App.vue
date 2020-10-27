@@ -61,14 +61,14 @@ export default {
           return [
             { route: 'Login', icon: 'mdi-login', name: 'Login'},
             { route: 'Cadastro', icon: 'mdi-account-plus', name: 'Cadastro'},
-            { route: 'ListaItems', icon: 'mdi-order-bool-ascending', name: 'Lista de Items'},
+            { route: 'ListaItems', icon: 'mdi-order-bool-ascending', name: 'Lista de Itens'},
             ]
         else
           return [
             { route: 'Perfil', icon: 'mdi-face-profile', name: 'Perfil'},
             { route: 'SubmeterItem', icon: 'mdi-send', name: 'Submeter Item'},
-            { route: 'ListaItems', icon: 'mdi-order-bool-ascending', name: 'Lista de Items'},
-            { route: '', icon: 'mdi-clipboard-arrow-down', name: 'Lances e Items'}
+            { route: 'ListaItems', icon: 'mdi-order-bool-ascending', name: 'Lista de Itens'},
+            { route: '', icon: 'mdi-clipboard-arrow-down', name: 'Lances e Itens'}
           ]
       }
     },
