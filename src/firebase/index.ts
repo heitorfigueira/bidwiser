@@ -24,28 +24,4 @@ const google = new firebase.auth.GoogleAuthProvider();
 const facebook = new firebase.auth.GoogleAuthProvider();
 
 
-
-// Aqui é onde estabelecemos a conexão mais importante do projeto.
-// Ela é responsável por captar mudanças do banco de dados e avisar o projeto que houve tal mudança.
-// Também é feita uma adição ao objeto do item, criando algumas flags úteis.
-
-// db.collection('items').onSnapshot((items) => {
-//   var itemList = items.docs.map((x) => {
-//     return {
-//       key: x.id,
-//       expired: new Date(x.data().expireDate) < new Date(),
-//       ended: x.data().desiredValue <= Math.max.apply(Math, x.data().lances.map((lance: any) => { return lance.value; })),
-//       content: {
-//         ...x.data()
-//       }
-//     }
-//   })
-//   var itemListFiltered = itemList.filter((a: any) => !a.expired && !a.ended)
-
-//   console.log(itemListFiltered)
-//   itemState.mutations.setItemList(itemState, itemList)
-//   itemState.mutations.setItemListFiltered(itemState, itemListFiltered)
-// })
-
-
 export default { db, auth, google, facebook };
