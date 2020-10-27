@@ -1,13 +1,16 @@
 import firebase from '../../firebase/index'
 import router from '../../router'
 
+
+// Diferentemente da controladora de estado dos items, essa não precisa receber atualizações em tempo real, portanto não há abertura do socket
+// São abertas conexões simples de listagem e inserção de objetos
+
 export default {
   state: {
     profile: null
   },
   mutations: {
     setProfile(state: any, profile: any) {
-      debugger
       state.profile = profile
     },
     clearProfile(state: any) {

@@ -68,7 +68,7 @@ export default {
             { route: 'Perfil', icon: 'mdi-face-profile', name: 'Perfil'},
             { route: 'SubmeterItem', icon: 'mdi-send', name: 'Submeter Item'},
             { route: 'ListaItems', icon: 'mdi-order-bool-ascending', name: 'Lista de Items'},
-            { route: 'LancesItems', icon: 'mdi-clipboard-arrow-down', name: 'Lances e Items'}
+            { route: '', icon: 'mdi-clipboard-arrow-down', name: 'Lances e Items'}
           ]
       }
     },

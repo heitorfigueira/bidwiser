@@ -8,11 +8,9 @@ export default {
   },
   mutations: {
     setItemList(state: any, itemList: any) {
-      console.log('full: ', itemList)
       state.itemList = itemList
     },
     setItemListFiltered(state: any, itemListFiltered: any) {
-      console.log('filtered: ', itemListFiltered)
       state.itemListFiltered = itemListFiltered
     }
   },
@@ -30,9 +28,7 @@ export default {
     // Também é feita uma adição ao objeto do item, criando algumas flags úteis.
     fetchItemList({ commit }: any){
       firebase.db.collection('items').onSnapshot((items) => {
-        debugger
-        var itemList = items.docs.map((x) => {
-          console.log(x.data().desired ? x.data().desiredValue : 'null', Math.max.apply(Math, x.data().lances.map((lance: any) => { return lance.value; })))
+        var itemList = items.docs.map((x) => { // mapeia a lista da resposta do request para uma que o front-end vai ler melhor
           return {
             key: x.id,
             expired: new Date(x.data().expireDate) < new Date(),
@@ -42,8 +38,8 @@ export default {
             }
           }
         })
-        commit('setItemList', itemList)
-        commit('setItemListFiltered', itemList.filter((a: any) => !a.expired && !a.ended))
+        commit('setItemList', itemList) // envia a lista de todos os items de leilão para ser gravada no estado da aplicação
+        commit('setItemListFiltered', itemList.filter((a: any) => !a.expired && !a.ended)) // faz o mesmo mas filtrando os items expirados ou que ja bateram o valor desejado
       })
     },
     sendNewBid({ commit }: any, payload: any) {
@@ -59,7 +55,6 @@ export default {
       return state.itemList
     },
     getItemListFiltered(state: any) {
-      console.log('get')
       return state.itemListFiltered
     },
   }

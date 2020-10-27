@@ -4,8 +4,9 @@ import 'firebase/firestore';
 
 import itemState from '../store/items'
 
+// Configuração do Database do Firebase
 
-const config = {
+const config = { // CREDENCIAIS
   apiKey: "AIzaSyCg6aiYQ0ytFvTkM-ovQY8Nv30b47_9i8o",
   authDomain: "bidweiser.firebaseapp.com",
   databaseURL: "https://bidweiser.firebaseio.com",
@@ -18,6 +19,8 @@ const config = {
 
 firebase.initializeApp(config);
 
+
+// Referencias de autenticação, database e provedores que não foram utilizados
 const db = firebase.firestore();
 const auth = firebase.auth();
 const google = new firebase.auth.GoogleAuthProvider();
