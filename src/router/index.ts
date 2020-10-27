@@ -41,13 +41,13 @@ const routes: Array<RouteConfig> = [
     beforeEnter: AuthGuard
   },
   {
-    path: '/lances-e-items',
+    path: '/lances-e-itens',
     name: 'LancesItems',
     component: LancesItems,
     beforeEnter: AuthGuard
   },
   {
-    path: '/lista-de-items',
+    path: '/lista-de-itens',
     name: 'ListaItems',
     component: ListaItems
   },

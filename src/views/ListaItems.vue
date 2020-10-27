@@ -3,7 +3,7 @@
     <v-card>
       <v-toolbar dark
         color="red">
-        <v-toolbar-title>Items do Leilão</v-toolbar-title>
+        <v-toolbar-title>Itens do Leilão</v-toolbar-title>
       </v-toolbar>
       <v-list three-line>
         <template v-for="(item, index) in getItemListFiltered">
